@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* โหมดสว่าง (Light Mode) */
+  --color-fylo-bg: #ffffff;
+  --color-fylo-bg-alt: #f5f5f5;
+  --color-fylo-footer: #e5e5e5;
+  --color-fylo-surface: #ffffff;
+  --color-fylo-border: #cccccc;
+  --color-fylo-text: hsl(218, 28%, 13%);
+  --color-fylo-text-muted: hsl(219, 30%, 18%);
+
+  /* สีหลักที่ใช้ร่วมกัน */
+  --color-fylo-cyan: hsl(176, 68%, 64%);
+  --color-fylo-blue: hsl(198, 60%, 50%);
+  --color-fylo-error: hsl(0, 100%, 63%);
+
+  --font-heading: "Raleway", sans-serif;
+  --font-body: "Open Sans", sans-serif;
+
+  /* อนิเมชันลอยต้านแรงโน้มถ่วง */
+  --animate-antigravity: antigravity 4s ease-in-out infinite;
+
+  @keyframes antigravity {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+}
+
+/* โหมดมืด (Dark Mode) */
+.dark {
+  --color-fylo-bg: hsl(218, 28%, 13%);
+  --color-fylo-bg-alt: hsl(217, 28%, 15%);
+  --color-fylo-footer: hsl(216, 53%, 9%);
+  --color-fylo-surface: hsl(219, 30%, 18%);
+  --color-fylo-border: hsl(219, 30%, 25%);
+  --color-fylo-text: hsl(0, 0%, 100%);
+  --color-fylo-text-muted: #c1c4cb;
+}
+
+@layer base {
+  body {
+    @apply bg-fylo-bg text-fylo-text font-body transition-colors duration-300;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-fylo-cyan to-fylo-blue hover:opacity-80 active:scale-95 shadow-md;
+  }
+}
